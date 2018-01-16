@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gsma="http://schemas.gsma.com/plugins">
+    <gsma:pluginappversion value="1" />
+    <plugin
+        android:name="real.com.rcsplugin.service.PluginService"
+        android:icon="@drawable/ic_whatshot_black_24dp"
+        android:label="@string/plugin_name"
+        android:versionCode="1"
+        android:versionName="1.0.0"
+        gsma:addressesPrivacy="clear"
+        gsma:description="@string/plugin_description"
+        gsma:disclaimer="@string/plugin_disclaimer"
+        gsma:pluginid="com.real#RealPlugin"
+        gsma:type="msgobjecthandler">
+        <actions>
+            <action gsma:type="VIEW" />
+            <action gsma:type="DELETE" />
+            <!-- Sample of using an alternative Service for an action -->
+            <action
+                android:name="real.com.rcsplugin.service.AlternateService"
+                gsma:cacheExpirationTime="30"
+                gsma:type="GET_TEMPLATE_VIEW" />
+            <!-- Sample of using an alternative icon for an action -->
+            <action
+                android:icon="@drawable/ic_create_black_24dp"
+                gsma:type="CREATE_OBJECT">
+                <!-- List of supported mimetypes -->
+                <mimetype gsma:mimetype="image/png" />
+                <mimetype gsma:mimetype="text/plain" />
+                <!-- Plugin entry point shall be shown in single-user chats -->
+                <context gsma:name="1to1" />
+                <!-- Plugin entry point shall be shown in multi-user chats -->
+                <context gsma:name="group" />
+            </action>
+            <action gsma:type="OBJECT_RECEIVED">
+                <!-- The following regex recognizes messages containing HTTP URLs from sampledomain.com -->
+                <text-regexp gsma:name="^(.*):\\s+(http|https)\\:\\/\\/sampledomain.com\\/[^\\s]+$" />
+            </action>
+        </actions>
+    </plugin>
+    <!-- any other plugin could be declared here by adding a new plugin tag -->
+    <endorsements>
+        <endorser
+            hash="sha256"
+            gsma:name="Vodafone Group">a9993e364706816aba3e25717850c26c9cd0d89d
+        </endorser>
+    </endorsements>
+</plugin-provider>

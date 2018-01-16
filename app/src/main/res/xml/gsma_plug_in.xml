@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plug-in-provider xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:gsma="http://schemas.gsma.com/plugins">
+    <gsma:pluginappversion value="1" />
+    <plug-in
+        android:name="com.gsma.plugin.provider.MyPluginProviderService"
+        android:icon="@drawable/ic_whatshot_black_24dp"
+        android:label="@string/plugin_name"
+        android:versionCode="1"
+        android:versionName="1.0"
+        gsma:description="@string/plugin_description"
+        gsma:disclaimer="@string/plugin_disclaimer"
+        gsma:pluginid="com.real#RealPlugin"
+        gsma:type="msgobjecthandler"
+        gsma:addressesrivacy="clear">
+
+        <actions>
+            <action
+                gsma:mimetype="text/plain"
+                gsma:type="CREATE_OBJECT" />
+        </actions>
+    </plug-in>
+</plug-in-provider>

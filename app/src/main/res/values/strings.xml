@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">RCS Plugin</string>
+
+    <string name="plugin_name">RCS Plugin</string>
+    <string name="plugin_description">RCS Real amazing plugin</string>
+    <string name="plugin_disclaimer">RCS Real amazing disclaimer</string>
+
+</resources>
